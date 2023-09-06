@@ -1,0 +1,21 @@
+If you've installed an Android application on your phone using Android Studio's "Run" or "Debug" option, the APK file is usually generated and installed directly on your device without being saved as a separate file on your phone. In this case, you won't find the APK file in your phone's storage because it's stored in a system directory.
+
+ **Use ADB (Android Debug Bridge):** If you have developer tools installed on your computer and USB debugging enabled on your phone, you can use ADB to pull the APK file from your device. Here's a general outline of the steps:
+
+   a. Connect your phone to your computer via USB.
+
+   b. Open a command prompt or terminal window on your computer.
+
+   c. Run the following command to list all installed packages on your device and find the package name of the app you want:
+   
+      ```
+      adb shell pm list packages
+      ```
+
+   d. Once you've identified the package name, run the following command to pull the APK to your computer (replace `com.example.app` with the actual package name of the app):
+
+      ```
+      adb pull /data/app/com.example.app-1/base.apk
+      ```
+
+   e. This will save the APK file to your computer.
